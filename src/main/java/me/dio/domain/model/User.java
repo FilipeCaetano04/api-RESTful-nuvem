@@ -22,7 +22,7 @@ public class User {
     private List<Feature> features;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private News[] news;
+    private List<News> news;
 
     public Long getId() {
         return id;
@@ -64,11 +64,11 @@ public class User {
         this.features = features;
     }
 
-    public News[] getNews() {
+    public List<News> getNews() {
         return news;
     }
 
-    public void setNews(News[] news) {
+    public void setNews(List<News> news) {
         this.news = news;
     }
 }
