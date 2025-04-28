@@ -4,14 +4,15 @@ FROM eclipse-temurin:21-jdk-alpine
 # Define o diretório de trabalho
 WORKDIR /app
 
-# Copia os arquivos do projeto para dentro do container
+# Copia o projeto
 COPY . .
 
-# Dá permissão de execução ao Gradle wrapper, se existir
+# Dá permissão ao Gradle Wrapper
 RUN chmod +x ./gradlew
 
-# Compila o projeto e gera o .jar (sem rodar os testes para acelerar)
-RUN ./gradlew build -x test
+# Gera o .jar correto do Spring Boot
+RUN ./gradlew bootJar -x test
 
-# Entra na pasta build/libs e executa o .jar gerado
+# Executa o jar gerado
 CMD ["sh", "-c", "java -jar build/libs/*.jar"]
+
