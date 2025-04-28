@@ -1,5 +1,5 @@
 [build]
-base_image = "mcr.microsoft.com/openjdk/jdk:21-jdk-slim"
+builder = "mcr.microsoft.com/openjdk/jdk:21-jdk-slim"
 build_command = "./gradlew clean build -x check -x test"
 
 [start]
