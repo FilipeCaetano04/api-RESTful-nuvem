@@ -1,3 +1,6 @@
 [build]
 base_image = "mcr.microsoft.com/openjdk/jdk:21-jdk-slim"
-build_command = "./gradlew bootJar"
+build_command = "./gradlew clean build -x check -x test"
+
+[start]
+command = "java -jar build/libs/api-RESTful-nuvem-0.0.1-SNAPSHOT.jar"
